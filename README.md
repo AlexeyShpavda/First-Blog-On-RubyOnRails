@@ -1,24 +1,31 @@
-# README
+# BLOG ON RUBY ON RAILS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+I watch the lessons and study to create a blog.
 
-Things you may want to cover:
+Goals:
 
-* Ruby version
+* Implement basic functionality
 
-* System dependencies
+* Create a design (Bootstrap, styles)
 
-* Configuration
+* Implement input validation
 
-* Database creation
+* Use flash
 
-* Database initialization
+* Add localization, switching
 
-* How to run the test suite
+* Add pictures (Carrierwave)
 
-* Services (job queues, cache servers, search engines, etc.)
+* Connect text editor
 
-* Deployment instructions
+* Add Tags
 
-* ...
+* Implement navigation
+
+* Add categories and menu
+
+* Implement user registration
+
+* Add admin panel
+
+* Correct mistakes
