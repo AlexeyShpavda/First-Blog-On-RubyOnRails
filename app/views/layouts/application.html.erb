@@ -6,15 +6,12 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <!--  <style>
-      li{ display:inline; }
-    </style> -->
   </head>
 
   <body>
     <div class="container">
       <nav class="navbar navbar-light bg-faded">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav-inline">
           <li class="nav-item active">
             <a class="nav-link" href="<%= posts_path %>">Статьи</a>
           </li>
@@ -27,15 +24,29 @@
     </div>
 
     <div class="container main">
-      <div class="col-md-12">
-        <% flash.each do |name, message| %>
-          <div class="alert alert-<%= name %>">
-            <%= message %>
-          </div>
-        <% end %>
+      <div class = "row">
+        <div class="col-md-12">
+          <% flash.each do |name, message| %>
+            <div class="alert alert-<%= name %>">
+              <%= message %>
+            </div>
+          <% end %>
+        </div>
       </div>
 
-      <%= yield %>
+      <div class = "row">
+        <div class="col-md-10">
+          <%= yield %>
+        </div>
+
+        <div class="col-md-2">
+          <br><%= 'Tags' %></br>
+          <% tag_cloud(Tag.counts, %w{ tag1 tag2 tag3 tag4 tag5 }) do |tag, css_class| %>
+            <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+          <% end %>
+        </div>
+      </div>
+
     </div>
   </body>
 </html>
