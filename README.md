@@ -20,6 +20,8 @@ Goals:
 
 * Add Tags
 
+* Add comments (DISQUS)
+
 * Implement navigation
 
 * Add categories and menu
