@@ -1,4 +1,4 @@
-#FIRST BLOG ON RUBY ON RAILS
+# FIRST BLOG ON RUBY ON RAILS
 
 I watch the lessons and study to create a blog.
 
