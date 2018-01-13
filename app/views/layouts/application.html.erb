@@ -12,14 +12,16 @@
     <div class="container">
       <nav class="navbar navbar-light bg-faded">
         <ul class="nav navbar-nav-inline">
-          <li class="nav-item active">
-            <a class="nav-link" href="<%= posts_path %>">Статьи</a>
+          <li class="nav-item <%= 'active' if current_page?(root_path) || current_page?(posts_path) %>">
+            <a class="nav-link" href="<%= root_path %>">All articles</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Контакты</a>
-          </li>
+          <% Category.order(:name).roots.each do |category| %>
+            <li class="nav-item <%= 'active' if current_page?(category_path(category)) %>">
+              <%= link_to category.name, category, class: 'nav-link' %>
+            </li>
+          <% end %>
         </ul>
-        <%= link_to 'Новая статья', new_post_path, class: 'btn btn-outline-primary pull-xs-right' %>
+        <%= link_to 'New article', new_post_path, class: 'btn btn-outline-primary pull-xs-right' %>
       </nav>
     </div>
 
@@ -40,10 +42,14 @@
         </div>
 
         <div class="col-md-2">
-          <br><%= 'Tags' %></br>
-          <% tag_cloud(Tag.counts, %w{ tag1 tag2 tag3 tag4 tag5 }) do |tag, css_class| %>
-            <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-          <% end %>
+          <%= render 'shared/submenu' %>
+
+          <div class="tag_cloud">
+            <h2>Tags</h2>
+            <% tag_cloud(Tag.counts, %w{ tag1 tag2 tag3 tag4 tag5 }) do |tag, css_class| %>
+              <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+            <% end %>
+          </div>
         </div>
       </div>
 
