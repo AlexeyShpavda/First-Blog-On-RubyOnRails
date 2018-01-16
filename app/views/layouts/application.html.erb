@@ -10,10 +10,10 @@
 
   <body>
     <div class="container">
-      <nav class="navbar navbar-inverse bg-inverse" style="background-color: #D0EFFF;">
+      <nav class="navbar navbar-inverse bg-inverse" style="background-color: #E9ECEF;">
         <ul class="nav navbar-nav-inline">
           <li class="nav-item <%= 'active' if current_page?(root_path) || current_page?(posts_path) %>">
-            <a class="nav-link" href="<%= root_path %>">All articles</a>
+            <a class="nav-link" href="<%= root_path %>">Статьи</a>
           </li>
           <% Category.order(:name).roots.each do |category| %>
             <li class="nav-item <%= 'active' if current_page?(category_path(category)) %>">
@@ -21,7 +21,24 @@
             </li>
           <% end %>
         </ul>
-        <%= link_to 'New article', new_post_path, class: 'btn btn-outline-primary pull-xs-right' %>
+
+        <%# <%= link_to 'New article', new_post_path, class: 'btn btn-outline-primary pull-xs-right' %>
+
+        <ul class="nav navbar-nav-inline">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to "Выход", destroy_user_session_path, method: :delete, class: "nav-link" %>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Вход", new_user_session_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Регистрация", new_user_registration_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </ul>
+
       </nav>
     </div>
 
@@ -29,7 +46,8 @@
       <div class = "row">
         <div class="col-md-12">
           <% flash.each do |name, message| %>
-            <div class="alert alert-<%= name %>">
+            <div class="alert <%= bootstrap_class_for(name) %>">
+              <button class="close" data-dismiss="alert">&times;</button>
               <%= message %>
             </div>
           <% end %>
@@ -45,7 +63,7 @@
           <%= render 'shared/submenu' %>
 
           <div class="tag_cloud">
-            <h2>Tags</h2>
+            <h2>Теги</h2>
             <% tag_cloud(Tag.counts, %w{ tag1 tag2 tag3 tag4 tag5 }) do |tag, css_class| %>
               <%= link_to tag.name, tag_path(tag.name), class: css_class %>
             <% end %>
