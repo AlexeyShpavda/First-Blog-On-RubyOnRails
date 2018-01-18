@@ -1,7 +1,15 @@
 ru:
   common:
+    loginUp: 'Регистрация'
+    loginIn: 'Вход'
+    loginOut: 'Выход'
+    posts: 'Статьи'
+    categories: 'Категории'
+    tags: 'Теги'
     errors: 'При заполнении формы возникли ошибки'
     back: 'Назад'
+    create: 'Создать'
+    edit: 'Изменить'
   will_paginate:
     previous_label: '&larr; Предыдущая'
     next_label: 'Следующая &rarr;'
