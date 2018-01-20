@@ -31,3 +31,23 @@ Goals:
 * Add admin panel
 
 * Correct mistakes
+
+***
+
+* Russian localization
+![alt text](Images/en.png)
+
+* English localization
+![alt text](Images/ru.png)
+
+* Category
+![alt text](Images/Development.png)
+
+* Login In
+![alt text](Images/LoginIN.png)
+
+* Admin panel
+![alt text](Images/Admin.png)
+
+* Creating a new article
+![alt text](Images/NewArticle.png)
