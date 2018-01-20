@@ -34,10 +34,10 @@ Goals:
 
 ***
 
-* Russian localization
+* English localization
 ![alt text](Images/en.png)
 
-* English localization
+* Russian localization
 ![alt text](Images/ru.png)
 
 * Category
